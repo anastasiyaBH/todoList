@@ -1,0 +1,12 @@
+.header {
+  height: 60px;
+  display: flex;
+  justify-content: flex-start;
+
+  background: #f7b3b9fc;
+}
+
+.header__title {
+  margin:auto 0;
+  padding: 0 20px;
+}

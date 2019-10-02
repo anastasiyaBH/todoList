@@ -1,0 +1,12 @@
+.footer {
+  height: 30px;
+  display: flex;
+  justify-content: flex-end;
+
+  background: #d2d2d2;
+}
+
+.footer__copyright{
+  margin: auto 0;
+  padding: 0 20px;
+}
