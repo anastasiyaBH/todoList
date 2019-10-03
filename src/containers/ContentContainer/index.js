@@ -9,7 +9,7 @@ import { openModal, closeModal } from '../../store/actions/actions';
 
 import './style.css';
 
-const withHOC = compose (
+const enhance = compose (
   connect(
     state => ({
       isOpenModal: state.modalState
@@ -36,7 +36,7 @@ const withHOC = compose (
   })
 );
 
-const Content = withHOC ( ({ open, close, isOpenModal }) => (
+const Content = enhance ( ({ open, close, isOpenModal }) => (
   <div className="content">
     <button className="content__button" onClick={open}>Open Modal</button>
     <Modal

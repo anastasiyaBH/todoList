@@ -7,7 +7,7 @@ import { addItem } from '../../store/actions/actions';
 
 const ENTER_KEY = 'Enter';
 
-const withHOC = compose(
+const enhance = compose(
   connect( 
     () => ({}), 
     dispatch => ({
@@ -40,7 +40,7 @@ const withHOC = compose(
   })
 );
 
-const AddItemBox = withHOC(({ change, click, keyPress, textState }) => {
+const AddItemBox = enhance(({ change, click, keyPress, textState }) => {
   return (
     <div className='addItemBox'>
       <input

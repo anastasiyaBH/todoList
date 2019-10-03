@@ -7,7 +7,7 @@ import ListItem from '../../components/ListItem';
 
 import './style.css';
 
-const withHOC = compose(
+const enhance = compose(
   connect( 
     state => ({
       items: state.listState
@@ -28,7 +28,7 @@ const withHOC = compose(
   })
 );
 
-const List = withHOC ( ({ items, click }) => (
+const List = enhance (({ items, click }) => (
   <>
     <ul className="list">
       {
