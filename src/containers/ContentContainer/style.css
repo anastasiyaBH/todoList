@@ -1,0 +1,27 @@
+.content {
+  flex: 1 0 auto;
+  display: flex;
+}
+
+.content__button {
+  margin: auto;
+  padding: 10px;
+
+  background: #f7b3b9fc;
+  border: 2px solid #f7b3b9fc;
+}
+
+.content__button:hover {
+  border: 2px solid #fd949dfc;
+}
+
+.content__button:active {
+  background: #f3cacdfc;
+}
+
+.content__window {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}

@@ -7,7 +7,7 @@ import List from '../List';
 import AddItemBox from '../AddItemBox';
 import { openModal, closeModal } from '../../store/actions/actions';
 
-import 'style.css';
+import './style.css';
 
 const withHOC = compose (
   connect(
@@ -38,14 +38,16 @@ const withHOC = compose (
 
 const Content = withHOC ( ({ open, close, isOpenModal }) => (
   <div className="content">
-    <button onClick={open}>Open Modal</button>
+    <button className="content__button" onClick={open}>Open Modal</button>
     <Modal
       isOpen={isOpenModal}
       ariaHideApp = {false}
     >
-      <button onClick={close}>Close Modal</button>
+      <div className="content__window">
+      <button className="content__button" onClick={close}>Close Modal</button>
       <List />
       <AddItemBox />
+      </div>
     </Modal>
   </div>
 ));

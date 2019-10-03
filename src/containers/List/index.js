@@ -5,6 +5,8 @@ import { connect } from 'react-redux';
 import { removeItem } from '../../store/actions/actions';
 import ListItem from '../../components/ListItem';
 
+import './style.css';
+
 const withHOC = compose(
   connect( 
     state => ({
@@ -27,8 +29,8 @@ const withHOC = compose(
 );
 
 const List = withHOC ( ({ items, click }) => (
-  <div className="list">
-    <ul>
+  <>
+    <ul className="list">
       {
         items.map(item => (
           <ListItem key={item.id} text={item.text} handleClick={ () => click(item.id) }/>
@@ -36,7 +38,7 @@ const List = withHOC ( ({ items, click }) => (
       }
     
     </ul>
-  </div>
+  </>
  ));
 
 export default List;
