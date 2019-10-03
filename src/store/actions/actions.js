@@ -10,7 +10,7 @@ export const closeModal = () => ({
 
 export const addItem = (text) => ({
     type: actionTypes.ADD_ITEM,
-    text
+    text,
   });
 
 export const removeItem = (id) => ({

@@ -1,13 +1,18 @@
 import React from 'react';
 import './style.css';
+import PropTypes from 'prop-types';
 
-const ListItem = () => {
+const ListItem = ({ text, handleClick }) => {
   return (
-    <div className='list-item'>
-      <p className='list-item__text' >ITEM</p>
-    </div>
+    <li className='list-item' onClick={handleClick} >
+      <div className='list-item__text'>{text}</div>
+    </li>
   )
 }
 
+ListItem.propTypes = {
+  text: PropTypes.string.isRequired,
+  handleClick: PropTypes.func.isRequired,
+}
 
 export default ListItem;

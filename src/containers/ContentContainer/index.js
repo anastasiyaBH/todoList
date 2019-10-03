@@ -1,21 +1,53 @@
 import React from 'react';
-import List from '../List';
-import AddItemBox from '../AddItemBox'
-
+import { compose, withHandlers } from 'recompose';
+import { connect } from 'react-redux';
 import Modal from 'react-modal';
 
+import List from '../List';
+import AddItemBox from '../AddItemBox';
+import { openModal, closeModal } from '../../store/actions/actions';
 
-const Content = () => (
+import 'style.css';
+
+const withHOC = compose (
+  connect(
+    state => ({
+      isOpenModal: state.modalState
+    }
+    ),
+    dispatch => ({
+      openModal: () => {
+        dispatch(openModal());
+      },
+      closeModal: () => {
+        dispatch(closeModal());
+      }
+    })
+  ),
+
+  withHandlers({
+    open: ({ openModal }) => () => {
+      openModal();
+    },
+
+    close: ({ closeModal }) => () => {
+      closeModal();
+    },
+  })
+);
+
+const Content = withHOC ( ({ open, close, isOpenModal }) => (
   <div className="content">
-    <button>Open Modal</button>
+    <button onClick={open}>Open Modal</button>
     <Modal
-      isOpen={true}
+      isOpen={isOpenModal}
+      ariaHideApp = {false}
     >
-      <button>Close Modal</button>
+      <button onClick={close}>Close Modal</button>
       <List />
       <AddItemBox />
     </Modal>
   </div>
-);
+));
 
 export default Content;

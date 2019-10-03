@@ -1,8 +1,6 @@
-import { createStore, applyMiddleware, compose } from 'redux'
-import { reducer } from './reducers/reducers'
+import { createStore} from 'redux'
+import { reducer } from './reducers/reducer';
 
-const composeEnhancers = compose;
-const enhancer = composeEnhancers(applyMiddleware(...middlewares));
-const store = createStore(reducer, enhancer);
+const store = createStore(reducer);
 
 export default store;

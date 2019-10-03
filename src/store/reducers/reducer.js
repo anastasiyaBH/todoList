@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 
 import * as actionTypes from '../actions/actionTypes';
 
-let ID = 1;
+let ID = 0;
 
 const modalReducer = (state = false, action) => {
     switch(action.type) {
@@ -27,7 +27,7 @@ const listReducer = (state = [], action) => {
       ]);
     }
     case actionTypes.REMOVE_ITEM: {
-      return state.filter((value) => value.id != action.id);
+      return state.filter((value) => value.id !== action.id);
     }
     default: {
       return state;
