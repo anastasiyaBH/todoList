@@ -27,7 +27,7 @@ const withHOC = compose(
     keyPress: ({textState, setTextState, addItem}) => ({key}) => {
       if (key === ENTER_KEY && textState) {
         addItem(textState);
-        setTextState('');
+        setTextState('');;
       }
     },
 
@@ -40,7 +40,7 @@ const withHOC = compose(
   })
 );
 
-const AddItemBox = withHOC(({ change, click, keyPress }) => {
+const AddItemBox = withHOC(({ change, click, keyPress, textState }) => {
   return (
     <div className='addItemBox'>
       <input
@@ -49,6 +49,7 @@ const AddItemBox = withHOC(({ change, click, keyPress }) => {
         placeholder='list item'
         onChange={change}
         onKeyPress={keyPress}
+        value={textState}
       />
       <button
         className='addItemBox__button'

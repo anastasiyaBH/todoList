@@ -4,6 +4,7 @@
   list-style-type: none;
   background: #f7b3b959;
   border: 2px solid #f7b3b959;
+  word-wrap: break-word;
 }
 
 .list-item:hover {
