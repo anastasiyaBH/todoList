@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux';
 import { handleActions } from 'redux-actions';
-import { addItem, removeItem, openModal, closeModal } from '../actions/actions'
+import { addItem, removeItem} from '../actions/actions';
+import {reducer as modal} from 'redux-modal';
 
 /*import * as actionTypes from '../actions/actionTypes';*/
 
@@ -18,7 +19,7 @@ let ID = 0;
     }
 }*/
 
-const modalReducer = handleActions(
+/*const modalReducer = handleActions(
   new Map([
     [
       openModal,
@@ -30,7 +31,7 @@ const modalReducer = handleActions(
     ]
   ]),
   false
-);
+);*/
 
 /*
 const listReducer = (state = [], action) => {
@@ -68,6 +69,7 @@ const listReducer = handleActions(
 );
 
 export const reducer = combineReducers({
-  modalState: modalReducer,
+  /* modalState: modalReducer,*/
   listState: listReducer,
+  modal
 });

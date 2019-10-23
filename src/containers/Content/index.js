@@ -1,23 +1,14 @@
 import React from 'react';
 import { compose, withHandlers } from 'recompose';
 import { connect } from 'react-redux';
-import Modal from 'react-modal';
-import styled from 'styled-components';
+import {show, hide} from 'redux-modal';
 
-import List from '../List';
-import AddItemBox from '../AddItemBox';
-import { openModal, closeModal } from '../../store/actions/actions';
+import styled from 'styled-components';
+import ModalInfo from '../ModalInfo'
 
 const StyledContent = styled.div`
 flex: 1 0 auto;
 display: flex;
-`;
-
-const ContentWindow = styled.div`
-height: 100%;
-display: flex;
-flex-direction: column;
-justify-content: space-between;
 `;
 
 const Button = styled.button`
@@ -37,44 +28,38 @@ border: 2px solid #f7b3b9fc;
 
 const enhance = compose(
   connect(
-    state => ({
-      isOpenModal: state.modalState
-    }
-    ),
+    (state) => ({
+    }),
     dispatch => ({
       openModal: () => {
-        dispatch(openModal());
+        console.log('OPEN MODAL DISPATCH');
+        dispatch(show('myModal'));
+        
       },
       closeModal: () => {
-        dispatch(closeModal());
+        dispatch(hide('myModal'));
+        console.log('CLOSE MODAL DISPATCH');
       }
     })
   ),
 
   withHandlers({
     open: ({ openModal }) => () => {
+      console.log('OPEN MODAL');
       openModal();
     },
 
     close: ({ closeModal }) => () => {
+      console.log('CLOSE MODAL');
       closeModal();
     },
   })
 );
 
-const Content = enhance(({ open, close, isOpenModal }) => (
+const Content = enhance(({ open, close }) => (
   <StyledContent>
     <Button onClick={open}>Open Modal</Button>
-    <Modal
-      isOpen={isOpenModal}
-      ariaHideApp={false}
-    >
-      <ContentWindow>
-        <Button onClick={close}>Close Modal</Button>
-        <List />
-        <AddItemBox />
-      </ContentWindow>
-    </Modal>
+    <ModalInfo close={close} />
   </StyledContent>
 ));
 
