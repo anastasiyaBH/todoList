@@ -1,11 +1,18 @@
 import React from 'react';
 import { compose, withHandlers } from 'recompose';
 import { connect } from 'react-redux';
+import styled from 'styled-components';
 
 import { removeItem } from '../../store/actions/actions';
 import ListItem from '../../components/ListItem';
 
-import './style.css';
+const StyledList = styled.ul`
+margin-left: 0; 
+padding-left: 0;
+overflow-y: scroll;
+flex: 1 0 auto;
+flex-basis: 75%;
+`;
 
 const enhance = compose(
   connect( 
@@ -30,14 +37,13 @@ const enhance = compose(
 
 const List = enhance (({ items, click }) => (
   <>
-    <ul className="list">
+    <StyledList>
       {
         items.map(item => (
           <ListItem key={item.id} text={item.text} handleClick={ () => click(item.id) }/>
         ))
-      }
-    
-    </ul>
+      }  
+    </StyledList>
   </>
  ));
 

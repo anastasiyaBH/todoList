@@ -1,10 +1,23 @@
 import React from 'react';
-import './style.css';
+import styled from 'styled-components'
+
+const StyledFooter = styled.footer`
+  height: 30px;
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: flex-end;
+  background: #d2d2d2;
+`;
+
+const Copyright = styled.p`
+  margin: auto 0; 
+  padding: 0 20px;
+`;
 
 const Footer = () => (
-    <footer className="footer">
-      <p className="footer__copyright">anastasiyaBH, 2019</p>
-    </footer>
+  <StyledFooter>
+    <Copyright>anastasiyaBH, 2019</Copyright>
+  </StyledFooter>
 );
 
 export default Footer;

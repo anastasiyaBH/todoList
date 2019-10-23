@@ -2,14 +2,40 @@ import React from 'react';
 import { compose, withHandlers } from 'recompose';
 import { connect } from 'react-redux';
 import Modal from 'react-modal';
+import styled from 'styled-components';
 
 import List from '../List';
 import AddItemBox from '../AddItemBox';
 import { openModal, closeModal } from '../../store/actions/actions';
 
-import './style.css';
+const StyledContent = styled.div`
+flex: 1 0 auto;
+display: flex;
+`;
 
-const enhance = compose (
+const ContentWindow = styled.div`
+height: 100%;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+`;
+
+const Button = styled.button`
+margin: auto;
+padding: 10px;
+background: #f7b3b9fc;
+border: 2px solid #f7b3b9fc;
+
+:hover {
+  border: 2px solid #fd949dfc;
+}
+
+:active {
+  background: #f3cacdfc;
+}
+`;
+
+const enhance = compose(
   connect(
     state => ({
       isOpenModal: state.modalState
@@ -36,20 +62,20 @@ const enhance = compose (
   })
 );
 
-const Content = enhance ( ({ open, close, isOpenModal }) => (
-  <div className="content">
-    <button className="content__button" onClick={open}>Open Modal</button>
+const Content = enhance(({ open, close, isOpenModal }) => (
+  <StyledContent>
+    <Button onClick={open}>Open Modal</Button>
     <Modal
       isOpen={isOpenModal}
-      ariaHideApp = {false}
+      ariaHideApp={false}
     >
-      <div className="content__window">
-      <button className="content__button" onClick={close}>Close Modal</button>
-      <List />
-      <AddItemBox />
-      </div>
+      <ContentWindow>
+        <Button onClick={close}>Close Modal</Button>
+        <List />
+        <AddItemBox />
+      </ContentWindow>
     </Modal>
-  </div>
+  </StyledContent>
 ));
 
 export default Content;

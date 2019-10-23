@@ -1,10 +1,22 @@
 import React from 'react';
-import './style.css';
+import styled from 'styled-components'
+
+const StyledHeader = styled.header`
+height: 60px;
+display: flex;
+justify-content: flex-start;
+background: #f7b3b9fc;
+`;
+
+const Title = styled.h1`
+margin:auto 0;
+padding: 0 20px;
+`;
 
 const Header = () => (
-    <header className="header">
-      <h1 className="header__title">ToDo List</h1>
-    </header>
+    <StyledHeader>
+      <Title>ToDo List</Title>
+    </StyledHeader>
 );
 
 export default Header;
