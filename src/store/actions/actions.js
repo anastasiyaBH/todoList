@@ -1,19 +1,8 @@
-import * as actionTypes from './actionTypes';
+import { createActions } from 'redux-actions';
 
-export const openModal = () => ({
-  type: actionTypes.OPEN_MODAL
-});
-
-export const closeModal = () => ({
-  type: actionTypes.CLOSE_MODAL
-});
-
-export const addItem = (text) => ({
-    type: actionTypes.ADD_ITEM,
-    text,
-  });
-
-export const removeItem = (id) => ({
-  type: actionTypes.REMOVE_ITEM,
-  id
+export const { addItem, removeItem, openModal, closeModal } = createActions({
+  ADD_ITEM: text=>({ text }),
+  REMOVE_ITEM: id=>({ id }),
+  OPEN_MODAL: ()=>{},
+  CLOSE_MODAL: ()=>{}
 });
