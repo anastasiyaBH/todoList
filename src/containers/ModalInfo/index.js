@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Modal from 'react-modal';
 import styled from 'styled-components';
-import {connectModal} from 'redux-modal';
+import { connectModal } from 'redux-modal';
+import FocusTrap from 'focus-trap-react';
 
 import List from '../List';
 import AddItemBox from '../AddItemBox';
@@ -34,11 +35,13 @@ const ModalInfo = ({ close, onOpen }) => (
     ariaHideApp={false}
     isOpen={onOpen}
   >
-    <ContentWindow>
-      <Button onClick={close}>Close Modal</Button>
-      <List />
-      <AddItemBox />
-    </ContentWindow>
+    <FocusTrap>
+      <ContentWindow>
+        <Button onClick={close}>Close Modal</Button>
+        <List />
+        <AddItemBox />
+      </ContentWindow>
+    </FocusTrap>
   </Modal>
 );
 
@@ -47,4 +50,4 @@ ModalInfo.propTypes = {
   onOpen: PropTypes.bool
 }
 
-export default connectModal({ name: 'myModal'})(ModalInfo);
+export default connectModal({ name: 'myModal' })(ModalInfo);
