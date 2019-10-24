@@ -28,37 +28,32 @@ border: 2px solid #f7b3b9fc;
 
 const enhance = compose(
   connect(
-    (state) => {
-      console.log(state.modal);
-      if(state.modal)
-      return {
+    (state) => (
+      (state.modal) 
+      ? {
         isOpenModal: true
       }
-      else return{
+      : {
         isOpenModal: false
       }
-  },
+    ),
     dispatch => ({
       openModal: () => {
-        console.log('OPEN MODAL DISPATCH');
         dispatch(show('myModal'));
         
       },
       closeModal: () => {
         dispatch(hide('myModal'));
-        console.log('CLOSE MODAL DISPATCH');
       }
     })
   ),
 
   withHandlers({
     open: ({ openModal }) => () => {
-      console.log('OPEN MODAL');
       openModal();
     },
 
     close: ({ closeModal }) => () => {
-      console.log('CLOSE MODAL');
       closeModal();
     },
   })

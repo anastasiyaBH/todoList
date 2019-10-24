@@ -32,7 +32,7 @@ border: 2px solid #f7b3b9fc;
 const ModalInfo = ({ close, onOpen }) => (
   <Modal
     ariaHideApp={false}
-    isOpenModal={onOpen}
+    isOpen={onOpen}
   >
     <ContentWindow>
       <Button onClick={close}>Close Modal</Button>
