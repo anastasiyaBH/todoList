@@ -6,26 +6,6 @@ import {show, hide} from 'redux-modal';
 import styled from 'styled-components';
 import ModalInfo from '../ModalInfo'
 
-const StyledContent = styled.div`
-flex: 1 0 auto;
-display: flex;
-`;
-
-const Button = styled.button`
-margin: auto;
-padding: 10px;
-background: #f7b3b9fc;
-border: 2px solid #f7b3b9fc;
-
-:hover {
-  border: 2px solid #fd949dfc;
-}
-
-:active {
-  background: #f3cacdfc;
-}
-`;
-
 const enhance = compose(
   connect(
     (state) => (
@@ -67,3 +47,23 @@ const Content = enhance(({ open, close, isOpenModal }) => (
 ));
 
 export default Content;
+
+const StyledContent = styled.div`
+flex: 1 0 auto;
+display: flex;
+`;
+
+const Button = styled.button`
+margin: auto;
+padding: 10px;
+background: #f7b3b9fc;
+border: 2px solid #f7b3b9fc;
+
+:hover {
+  border: 2px solid #fd949dfc;
+}
+
+:active {
+  background: #f3cacdfc;
+}
+`;

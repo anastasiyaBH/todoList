@@ -8,28 +8,6 @@ import FocusTrap from 'focus-trap-react';
 import List from '../List';
 import AddItemBox from '../AddItemBox';
 
-const ContentWindow = styled.div`
-height: 100%;
-display: flex;
-flex-direction: column;
-justify-content: space-between;
-`;
-
-const Button = styled.button`
-margin: auto;
-padding: 10px;
-background: #f7b3b9fc;
-border: 2px solid #f7b3b9fc;
-
-:hover {
-  border: 2px solid #fd949dfc;
-}
-
-:active {
-  background: #f3cacdfc;
-}
-`;
-
 const ModalInfo = ({ close, onOpen }) => (
   <Modal
     ariaHideApp={false}
@@ -51,3 +29,25 @@ ModalInfo.propTypes = {
 }
 
 export default connectModal({ name: 'myModal' })(ModalInfo);
+
+const ContentWindow = styled.div`
+height: 100%;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+`;
+
+const Button = styled.button`
+margin: auto;
+padding: 10px;
+background: #f7b3b9fc;
+border: 2px solid #f7b3b9fc;
+
+:hover {
+  border: 2px solid #fd949dfc;
+}
+
+:active {
+  background: #f3cacdfc;
+}
+`;

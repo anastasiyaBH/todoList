@@ -7,42 +7,6 @@ import { addItem } from '../../store/actions/actions';
 
 const ENTER_KEY = 'Enter';
 
-const StyledBox = styled.div`
-display: flex;
-justify-content: center;
-padding: 10px;
-flex: 0 0 auto;
-`;
-
-const Input = styled.input`
-margin: 0 10px;
-width: 60%;
-padding: 5px;
-border: 3px solid #f7b3b9fc;
-
-:focus {
-  outline: 0;
-  outline-offset: 0;
-  border: 3px solid #fd949dfc;
-}
-`;
-
-const Button = styled.button`
-padding: 5px 20px;
-margin: 0 10px;
-background: #f7b3b9fc;
-border: 2px solid #f7b3b9fc;
-
-:hover {
-  border: 2px solid #fd949dfc;
-}
-
-:active {
-  background: #f3cacdfc;
-}
-`;
-
-
 const enhance = compose(
   connect( 
     () => ({}), 
@@ -96,3 +60,39 @@ const AddItemBox = enhance(({ change, click, keyPress, textState }) => {
 });
 
 export default AddItemBox;
+
+
+const StyledBox = styled.div`
+display: flex;
+justify-content: center;
+padding: 10px;
+flex: 0 0 auto;
+`;
+
+const Input = styled.input`
+margin: 0 10px;
+width: 60%;
+padding: 5px;
+border: 3px solid #f7b3b9fc;
+
+:focus {
+  outline: 0;
+  outline-offset: 0;
+  border: 3px solid #fd949dfc;
+}
+`;
+
+const Button = styled.button`
+padding: 5px 20px;
+margin: 0 10px;
+background: #f7b3b9fc;
+border: 2px solid #f7b3b9fc;
+
+:hover {
+  border: 2px solid #fd949dfc;
+}
+
+:active {
+  background: #f3cacdfc;
+}
+`;
