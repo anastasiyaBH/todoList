@@ -28,8 +28,16 @@ border: 2px solid #f7b3b9fc;
 
 const enhance = compose(
   connect(
-    (state) => ({
-    }),
+    (state) => {
+      console.log(state.modal);
+      if(state.modal)
+      return {
+        isOpenModal: true
+      }
+      else return{
+        isOpenModal: false
+      }
+  },
     dispatch => ({
       openModal: () => {
         console.log('OPEN MODAL DISPATCH');
@@ -56,10 +64,10 @@ const enhance = compose(
   })
 );
 
-const Content = enhance(({ open, close }) => (
+const Content = enhance(({ open, close, isOpenModal }) => (
   <StyledContent>
     <Button onClick={open}>Open Modal</Button>
-    <ModalInfo close={close} />
+    <ModalInfo close={close} onOpen={isOpenModal} />
   </StyledContent>
 ));
 

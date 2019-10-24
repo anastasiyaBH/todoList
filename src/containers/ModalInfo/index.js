@@ -29,9 +29,10 @@ border: 2px solid #f7b3b9fc;
 }
 `;
 
-const ModalInfo = ({ close }) => (
+const ModalInfo = ({ close, onOpen }) => (
   <Modal
     ariaHideApp={false}
+    isOpenModal={onOpen}
   >
     <ContentWindow>
       <Button onClick={close}>Close Modal</Button>
@@ -43,6 +44,7 @@ const ModalInfo = ({ close }) => (
 
 ModalInfo.propTypes = {
   close: PropTypes.func.isRequired,
+  onOpen: PropTypes.bool
 }
 
 export default connectModal({ name: 'myModal'})(ModalInfo);
